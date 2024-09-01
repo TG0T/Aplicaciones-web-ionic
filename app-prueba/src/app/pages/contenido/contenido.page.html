@@ -1,8 +1,5 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons>
     <ion-title>contenido</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,4 +7,7 @@
 <ion-content [fullscreen]="true" class="ion-padding">
  <ion-title class="ion-margin-top">Usuario: {{mdl_usuario}} </ion-title>   <!-- titulo con etiqueta (variable desde el .ts)-->
   <ion-title class="ion-margin-top">Contraseña: {{mdl_pass}} </ion-title>
+  <ion-button color="danger" class="ion-margin-top" (click)="volver()">
+    Cerrar sesion
+  </ion-button>
 </ion-content>

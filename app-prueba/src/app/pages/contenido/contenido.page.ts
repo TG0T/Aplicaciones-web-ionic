@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contenido',
@@ -20,6 +20,16 @@ export class ContenidoPage implements OnInit {
     this.mdl_usuario = extras.state['usuario'] // llena el titulo de usuario
     this.mdl_pass = extras.state['pass'] // llena el titulo de pass
   }
+  }
+
+  volver(){
+    let extras : NavigationExtras = {
+      state: {
+        'pass' : this.mdl_pass,
+        'usuario' : this.mdl_usuario
+      }
+    }
+    this.router.navigate(['login'], extras)
   }
 
 }
