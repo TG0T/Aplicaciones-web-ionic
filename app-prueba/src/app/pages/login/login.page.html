@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="index"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-input labelPlacement="floating" label="Usuario" [(ngModel)]="mdl_user"></ion-input>
+  <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass"></ion-input>
+  <div class="ion-margin-top">
+    <ion-button color="success" class="ion-margin-start"  (click)="login()">
+      ingresar
+    </ion-button>
+    <ion-button color="warning" class="ion-margin-start" (click)="contrasena()">
+      Contraseña?
+    </ion-button>
+  </div>
+</ion-content>

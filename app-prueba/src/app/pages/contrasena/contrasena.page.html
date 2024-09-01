@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-input [(ngModel)]="nuevaPass" labelPlacement="floating" label="cambiar contraseña"></ion-input>
+  <ion-button (click)="cambio()">cambiar contraseña</ion-button>
+</ion-content>

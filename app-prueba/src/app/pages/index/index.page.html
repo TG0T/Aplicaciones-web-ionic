@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Una App Cualquiera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-title class="ion-text-center ion-margin-bottom">
+    Cositas
+  </ion-title>
+  <ion-button expand="block" class="ion-margin-bottom" (click)="login()">
+    Ingresar a ver cositas
+  </ion-button>
+  <ion-button [disabled]="true" expand="block">
+    Registrarse
+  </ion-button>
+</ion-content>
