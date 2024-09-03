@@ -55,4 +55,15 @@ export class PerfilPage implements OnInit {
     } 
   }
 
+  volver(){
+    this.router.navigate(['contenido'],{
+      state : {
+        'nombre' : this.nombre,
+        'pass1' : this.pass,
+        'correo' : this.correo
+      }, replaceUrl : true
+    }
+    )
+  }
+
 }
