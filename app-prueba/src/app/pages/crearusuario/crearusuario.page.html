@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>crearusuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title class="ion-padding ion-text-center">
+    Crea tu usuario!
+  </ion-title>
+  <ion-list class="ion-padding">
+    <ion-item class="ion-margin-bottom">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_correo">
+        <div slot="label">Correo</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_nombre">
+        <div slot="label">Nombres</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_contrasena1">
+        <div slot="label">Contraseña</div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-input labelPlacement="floating" [(ngModel)]="mdl_contrasena2">
+        <div slot="label">Confirmar Contraseña</div>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" class="ion-padding" (click)="crearcuenta()">
+    Crear cuenta!
+  </ion-button>
+</ion-content>

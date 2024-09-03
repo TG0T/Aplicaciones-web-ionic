@@ -1,13 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>contenido</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="popover-button">
+        <ion-icon name="person-circle" slot="icon-only">
+          <ion-popover trigger="popover-button" [dismissOnSelect]="false">
+            <ng-template>
+              <ion-content>
+                <ion-list>
+                  <ion-item>Correo: {{mdl_correo}}</ion-item>
+                  <ion-item>Nombre: {{mdl_nombre}}</ion-item>
+                  <ion-item><ion-input labelPlacement="floating" label="Contraseña actual"></ion-input></ion-item>
+                  <ion-item><ion-input labelPlacement="floating" label="Nueva Contraseña"></ion-input></ion-item>
+                  <ion-item lines="none" class="ion-justfify-content-center"><div style="width: fit-content;"><ion-button>Cambiar Contraseña</ion-button></div></ion-item>
+                </ion-list>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-icon>
+      </ion-button>
+      <ion-button (click)="volver()">
+        <ion-icon name="exit-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Bienvenido: {{mdl_nombre}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
- <ion-title class="ion-margin-top">Usuario: {{mdl_usuario}} </ion-title>   <!-- titulo con etiqueta (variable desde el .ts)-->
-  <ion-title class="ion-margin-top">Contraseña: {{mdl_pass}} </ion-title>
-  <ion-button color="danger" class="ion-margin-top" (click)="volver()">
-    Cerrar sesion
-  </ion-button>
+  <ion-title>
+    un monton de weas
+  </ion-title>
 </ion-content>

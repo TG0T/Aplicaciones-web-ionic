@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'contrasena',
     loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
+  },  {
+    path: 'crearusuario',
+    loadChildren: () => import('./pages/crearusuario/crearusuario.module').then( m => m.CrearusuarioPageModule)
   },
+
 ];
 
 @NgModule({
