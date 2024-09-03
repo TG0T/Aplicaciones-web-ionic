@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'index',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -22,9 +22,14 @@ const routes: Routes = [
   {
     path: 'contrasena',
     loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
-  },  {
+  },
+  {
     path: 'crearusuario',
     loadChildren: () => import('./pages/crearusuario/crearusuario.module').then( m => m.CrearusuarioPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
 
 ];

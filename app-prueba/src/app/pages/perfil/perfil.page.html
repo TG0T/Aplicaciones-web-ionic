@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="exit-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-title class="ion-text-center">
+    Modifica tus datos
+  </ion-title>
+  <div>
+    <ion-input label="Nombre:" disabled='true|' value="{{nombre}}"></ion-input>
+    <ion-input label="Correo:" disabled='true' value=" {{correo}}"></ion-input>
+  </div>
+  <div>
+    <ion-title class="ion-text-center ion-margin-top">
+      Modifica tu contraseña
+    </ion-title>
+    <ion-input label="Contraseña Actual" labelPlacement="floating" [(ngModel)]="passAnterior" class="ion-margin-top"></ion-input>
+    <ion-input label="Contraseña Nueva" labelPlacement="floating" [(ngModel)]="passNueva" (ngModelChange)="boton()"></ion-input>
+  </div>
+  <ion-button expand="block" [disabled]="!activo" class="ion-margin-top" (click)="cambioPass()">
+    Cambiar Contraseña
+  </ion-button>
+</ion-content>

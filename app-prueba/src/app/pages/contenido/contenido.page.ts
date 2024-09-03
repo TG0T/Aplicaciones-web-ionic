@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-contenido',
@@ -8,11 +9,14 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class ContenidoPage implements OnInit {
 
-
   mdl_correo: string = ''
   mdl_nombre: string = ''
   mdl_contrasena1: string = ''
   mdl_contrasenanueva: string = ''
+
+  //inputs modal
+  pass1: string = ''
+  pass2: string = ''
 
   constructor(private router : Router) { }
 
@@ -24,6 +28,7 @@ export class ContenidoPage implements OnInit {
     this.mdl_contrasena1 = extras.state['pass1'],
     this.mdl_nombre = extras.state['nombre']
   }
+  console.log(this.mdl_contrasena1)
   }
 
   volver(){
@@ -37,5 +42,14 @@ export class ContenidoPage implements OnInit {
     )
   }
 
+  perfil(){
+    this.router.navigate(['perfil'],{
+      state : {
+        'nombre' : this.mdl_nombre,
+        'pass1' : this.mdl_contrasena1,
+        'correo' : this.mdl_correo
+      }, replaceUrl : true
+    })
+  }
 
 }

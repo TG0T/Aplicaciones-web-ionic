@@ -1,22 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button id="popover-button">
-        <ion-icon name="person-circle" slot="icon-only">
-          <ion-popover trigger="popover-button" [dismissOnSelect]="false">
-            <ng-template>
-              <ion-content>
-                <ion-list>
-                  <ion-item>Correo: {{mdl_correo}}</ion-item>
-                  <ion-item>Nombre: {{mdl_nombre}}</ion-item>
-                  <ion-item><ion-input labelPlacement="floating" label="Contraseña actual"></ion-input></ion-item>
-                  <ion-item><ion-input labelPlacement="floating" label="Nueva Contraseña"></ion-input></ion-item>
-                  <ion-item lines="none" class="ion-justfify-content-center"><div style="width: fit-content;"><ion-button>Cambiar Contraseña</ion-button></div></ion-item>
-                </ion-list>
-              </ion-content>
-            </ng-template>
-          </ion-popover>
-        </ion-icon>
+      <ion-button (click)="perfil()">
+        <ion-icon name="person-circle" slot="icon-only"></ion-icon>
       </ion-button>
       <ion-button (click)="volver()">
         <ion-icon name="exit-outline" slot="icon-only"></ion-icon>
