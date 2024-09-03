@@ -13,10 +13,10 @@ export class LoginPage implements OnInit {
   mdl_pass: string = ''
 
   // datos desde crear usuario
-  mdl_correo: string = 'null' //se evita el login
-  mdl_nombre: string = 'null'
-  mdl_contrasena1: string = 'null'
-  mdl_contrasena2: string = 'null'
+  mdl_correo: string = '' //se evita el login
+  mdl_nombre: string = ''
+  mdl_contrasena1: string = ''
+  mdl_contrasena2: string = ''
 
   //contraseña actual - predefinida
   mdl_extra: string = 'admin' 
@@ -74,6 +74,16 @@ export class LoginPage implements OnInit {
       }, replaceUrl : true
     }
     this.router.navigate(['crearusuario'], extras)
+  }
+
+  activo = false
+
+  boton(){
+    if(this.mdl_user.length == 0 && this.mdl_pass.length == 0){
+      this.activo = false
+    }else{
+      this.activo = true
+    }
   }
 
 }

@@ -6,8 +6,8 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-input labelPlacement="floating" label="Usuario" [(ngModel)]="mdl_user"></ion-input>
-  <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass" class="ion-margin-bottom"></ion-input>
- <ion-button expand="block" (click)="login()" color="success">
+  <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass" class="ion-margin-bottom" (ngModelChange)="boton()"></ion-input>
+ <ion-button expand="block" (click)="login()" color="success" [disabled]="!activo">
     Ingresar
   </ion-button>
   <ion-button expand="block" (click)="crearusuario()">
