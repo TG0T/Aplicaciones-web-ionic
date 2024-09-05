@@ -36,22 +36,15 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-.login{
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-    border: 2px white solid;
-    background-color: lightblue;
-    color: black;
+.fullheight {
+  height: 25%;
 }
 
-.fullheight {
-    height: 100%;
-  }
+.pad{
+  padding-left: 10%;
+}
 
-.xc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.centerLogin {
+  width: 85%;
+  margin: auto;
+}

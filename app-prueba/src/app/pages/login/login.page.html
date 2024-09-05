@@ -5,12 +5,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-input labelPlacement="floating" label="Usuario" [(ngModel)]="mdl_user"></ion-input>
-  <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass" class="ion-margin-bottom" (ngModelChange)="boton()"></ion-input>
- <ion-button expand="block" (click)="login()" color="success" [disabled]="!activo">
-    Ingresar
-  </ion-button>
-  <ion-button expand="block" (click)="crearusuario()">
-    Crear Cuenta
-  </ion-button>
+  <div class="fullheight"></div>
+  <ion-card class="centerLogin ion-padding">
+    <ion-input labelPlacement="floating" label="Usuario" [(ngModel)]="mdl_user"></ion-input>
+    <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass" class="ion-margin-bottom" (ngModelChange)="boton()"></ion-input>
+    <ion-button expand="block" (click)="login()" color="success" [disabled]="!activo" [fill]="relleno">
+      Ingresar
+    </ion-button>
+    <ion-button expand="block" (click)="crearusuario()">
+      Crear Cuenta
+    </ion-button>
+  </ion-card>
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]="mensaje"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
 </ion-content>

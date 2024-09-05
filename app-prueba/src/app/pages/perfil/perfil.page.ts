@@ -19,6 +19,8 @@ export class PerfilPage implements OnInit {
 
   //boton
   activo = false
+  relleno : string = 'outline'
+  color : string = 'warning'
 
   constructor(private router : Router) { }
 
@@ -32,16 +34,28 @@ export class PerfilPage implements OnInit {
   }
 
   boton(){
-    if(this.passNueva.length == 0 && this.passAnterior.length == 0){
+    if(this.passNueva.length == 0 || this.passAnterior.length == 0){
       this.activo = false
+      this.relleno = 'outline'
+      this.color = 'warning'
     }else{
       this.activo = true
+      this.relleno = 'solid'
+      this.color = 'success'
     }
+  }
+
+  isToastOpen = false
+  mensaje : string = ''
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
   }
 
   cambioPass(){
     if(this.pass != this.passAnterior){
-      console.log('nope')
+      this.isToastOpen = true;
+      this.mensaje = 'La contraseña anterior no coincide!'
     }else{
       console.log('yis')
       this.pass = this.passNueva

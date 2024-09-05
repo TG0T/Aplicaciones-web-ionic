@@ -10,21 +10,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-title class="ion-text-center">
-    Modifica tus datos
-  </ion-title>
-  <div>
-    <ion-input label="Nombre:" disabled='true|' value="{{nombre}}"></ion-input>
-    <ion-input label="Correo:" disabled='true' value=" {{correo}}"></ion-input>
-  </div>
-  <div>
-    <ion-title class="ion-text-center ion-margin-top">
-      Modifica tu contraseña
+  <div class="fullheight"></div>
+  <ion-card class="centerLogin ion-padding">
+    <ion-title class="ion-text-center ion-margin-bottom">
+      Modifica tus datos
     </ion-title>
-    <ion-input label="Contraseña Actual" labelPlacement="floating" [(ngModel)]="passAnterior" class="ion-margin-top"></ion-input>
-    <ion-input label="Contraseña Nueva" labelPlacement="floating" [(ngModel)]="passNueva" (ngModelChange)="boton()"></ion-input>
-  </div>
-  <ion-button expand="block" [disabled]="!activo" class="ion-margin-top" (click)="cambioPass()">
-    Cambiar Contraseña
-  </ion-button>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Nombre:</ion-col>
+          <ion-col size="9">{{nombre}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Correo:</ion-col>
+          <ion-col size="9">{{correo}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-title class="ion-text-center ion-margin-top">
+        Modifica tu contraseña
+      </ion-title>
+      <ion-input label="Contraseña Actual" labelPlacement="floating" [(ngModel)]="passAnterior" class="ion-margin-top"></ion-input>
+      <ion-input label="Contraseña Nueva" labelPlacement="floating" [(ngModel)]="passNueva" (ngModelChange)="boton()"></ion-input>
+    <ion-button [fill]="relleno" [color]="color" expand="block" [disabled]="!activo" class="ion-margin-top" (click)="cambioPass()">
+      Cambiar Contraseña
+    </ion-button>
+  </ion-card>
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]="mensaje"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
 </ion-content>

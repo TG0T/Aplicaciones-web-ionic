@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   mdl_pass: string = ''
 
   // datos desde crear usuario
-  mdl_correo: string = '' //se evita el login
+  mdl_correo: string = ''
   mdl_nombre: string = ''
   mdl_contrasena1: string = ''
   mdl_contrasena2: string = ''
@@ -49,6 +49,13 @@ export class LoginPage implements OnInit {
     this.router.navigate(['contrasena'], extras) //redirige a la pantalla/pagina contraseña
   }
 
+  isToastOpen = false
+  mensaje : string = ''
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
+
   login(){
     if(this.mdl_user == this.mdl_correo && this.mdl_pass == this.mdl_contrasena1){
       this.router.navigate(['contenido'],{
@@ -60,7 +67,8 @@ export class LoginPage implements OnInit {
       }
       )
     }else{
-      console.log('nope')
+      this.isToastOpen = true;
+      this.mensaje = 'Credenciales incorrectas!'
     }
   }
 
@@ -76,13 +84,17 @@ export class LoginPage implements OnInit {
     this.router.navigate(['crearusuario'], extras)
   }
 
+  //boton login
   activo = false
+  relleno : string = 'outline'
 
   boton(){
-    if(this.mdl_user.length == 0 && this.mdl_pass.length == 0){
+    if(this.mdl_user == '' || this.mdl_pass == ''){
       this.activo = false
+      this.relleno = 'outline'
     }else{
       this.activo = true
+      this.relleno = 'solid'
     }
   }
 
