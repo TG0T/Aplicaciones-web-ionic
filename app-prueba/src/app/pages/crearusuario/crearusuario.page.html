@@ -12,8 +12,12 @@
     <ion-title class="ion-padding ion-text-center" style="color: white;">Crea tu usuario!</ion-title>
         <ion-input labelPlacement="floating" label="Correo" [(ngModel)]="mdl_correo"></ion-input>
         <ion-input labelPlacement="floating" label="Nombres" [(ngModel)]="mdl_nombre"></ion-input>
-        <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_contrasena1"></ion-input>
-        <ion-input labelPlacement="floating" label="Confirmar Contraseña" [(ngModel)]="mdl_contrasena2" (ngModelChange)="boton()"></ion-input>
+        <ion-input type="password" labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_contrasena1">
+          <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+        </ion-input>
+        <ion-input type="password" labelPlacement="floating" label="Confirmar Contraseña" [(ngModel)]="mdl_contrasena2" (ngModelChange)="boton()">
+          <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+        </ion-input>
     <ion-button expand="block" class="ion-padding" (click)="crearcuenta()" [disabled]="!activo" [fill]="relleno">
       Crear cuenta!
     </ion-button>

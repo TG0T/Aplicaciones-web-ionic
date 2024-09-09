@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 
@@ -8,6 +8,8 @@ import { IonModal } from '@ionic/angular';
   styleUrls: ['./contenido.page.scss'],
 })
 export class ContenidoPage implements OnInit {
+
+  @ViewChild(IonModal) modal!: IonModal;
 
   mdl_correo: string = ''
   mdl_nombre: string = ''
@@ -40,6 +42,7 @@ export class ContenidoPage implements OnInit {
       }, replaceUrl : true
     }
     )
+    this.modal.dismiss();
   }
 
   perfil(){
@@ -50,6 +53,10 @@ export class ContenidoPage implements OnInit {
         'correo' : this.mdl_correo
       }, replaceUrl : true
     })
+  }
+
+  dismissModal() {
+    this.modal.dismiss();
   }
 
 }

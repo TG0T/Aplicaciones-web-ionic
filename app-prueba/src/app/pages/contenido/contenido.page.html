@@ -4,7 +4,7 @@
       <ion-button (click)="perfil()">
         <ion-icon name="person-circle" slot="icon-only"></ion-icon>
       </ion-button>
-      <ion-button (click)="volver()">
+      <ion-button id="abrir">
         <ion-icon name="exit-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,4 +16,13 @@
   <ion-title>
     Bienvenido: {{mdl_nombre}}
   </ion-title>
+  <ion-modal trigger="abrir" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <div class="ion-text-center">
+        <ion-title class="ion-padding">Cerrar Sesion?</ion-title>
+        <ion-button class="block ion-margin-bottom" color="danger" (click)="volver()">Salir</ion-button>
+        <ion-button class="block ion-margin-bottom" (click)="dismissModal()">Volver</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -58,14 +59,18 @@ export class PerfilPage implements OnInit {
       this.mensaje = 'La contraseña anterior no coincide!'
     }else{
       console.log('yis')
-      this.pass = this.passNueva
-      this.router.navigate(['contenido'],{
-        state : {
-          'nombre' : this.nombre,
-          'pass1' : this.pass,
-          'correo' : this.correo
-        }, replaceUrl : true
-      })
+      this.isToastOpen = true;
+      this.mensaje = 'Has cambiado la contraseña con exito!'
+      setTimeout(() => {
+        this.pass = this.passNueva
+        this.router.navigate(['contenido'],{
+          state : {
+            'nombre' : this.nombre,
+            'pass1' : this.pass,
+            'correo' : this.correo
+          }, replaceUrl : true
+        })
+      }, 1000);
     } 
   }
 

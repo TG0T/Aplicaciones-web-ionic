@@ -28,8 +28,12 @@
       <ion-title class="ion-text-center ion-margin-top">
         Modifica tu contraseña
       </ion-title>
-      <ion-input label="Contraseña Actual" labelPlacement="floating" [(ngModel)]="passAnterior" class="ion-margin-top"></ion-input>
-      <ion-input label="Contraseña Nueva" labelPlacement="floating" [(ngModel)]="passNueva" (ngModelChange)="boton()"></ion-input>
+      <ion-input type="password" label="Contraseña Actual" labelPlacement="floating" [(ngModel)]="passAnterior" class="ion-margin-top">
+        <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+      </ion-input>
+      <ion-input type="password" label="Contraseña Nueva" labelPlacement="floating" [(ngModel)]="passNueva" (ngModelChange)="boton()">
+        <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+      </ion-input>
     <ion-button [fill]="relleno" [color]="color" expand="block" [disabled]="!activo" class="ion-margin-top" (click)="cambioPass()">
       Cambiar Contraseña
     </ion-button>
