@@ -23,6 +23,9 @@ export class PerfilPage implements OnInit {
   relleno : string = 'outline'
   color : string = 'warning'
 
+    //
+    recuerdame = null
+
   constructor(private router : Router) { }
 
   ngOnInit() {
@@ -30,7 +33,8 @@ export class PerfilPage implements OnInit {
     if(extras?.state){
       this.correo = extras.state['correo']
       this.pass = extras.state['pass1']
-      this.nombre = extras.state['nombre']
+      this.nombre = extras.state['nombre'],
+      this.recuerdame = extras.state['recuerdo']
     }
   }
 
@@ -67,7 +71,8 @@ export class PerfilPage implements OnInit {
           state : {
             'nombre' : this.nombre,
             'pass1' : this.pass,
-            'correo' : this.correo
+            'correo' : this.correo,
+            'recuerdo' : this.recuerdame
           }, replaceUrl : true
         })
       }, 1000);
@@ -79,7 +84,8 @@ export class PerfilPage implements OnInit {
       state : {
         'nombre' : this.nombre,
         'pass1' : this.pass,
-        'correo' : this.correo
+        'correo' : this.correo,
+        'recuerdo' : this.recuerdame
       }, replaceUrl : true
     }
     )

@@ -11,6 +11,7 @@
     <ion-input type="password" labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_pass" class="ion-margin-bottom" (ngModelChange)="boton()">
       <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
     </ion-input>
+    <ion-checkbox labelPlacement="end" style="margin-top: 1%; margin-bottom: 5%;" [(ngModel)]="recuerdame">Recuerdame</ion-checkbox>
     <ion-button expand="block" (click)="login()" color="success" [disabled]="!activo" [fill]="relleno">
       Ingresar
     </ion-button>

@@ -20,6 +20,9 @@ export class ContenidoPage implements OnInit {
   pass1: string = ''
   pass2: string = ''
 
+  //
+  recuerdame = null
+
   constructor(private router : Router) { }
 
   ngOnInit() {
@@ -28,9 +31,11 @@ export class ContenidoPage implements OnInit {
   if(extras?.state){
     this.mdl_correo = extras.state['correo'], // llena el titulo de usuario
     this.mdl_contrasena1 = extras.state['pass1'],
-    this.mdl_nombre = extras.state['nombre']
+    this.mdl_nombre = extras.state['nombre'],
+    this.recuerdame = extras.state['recuerdo']
   }
   console.log(this.mdl_contrasena1)
+  console.log(this.recuerdame)
   }
 
   volver(){
@@ -38,7 +43,8 @@ export class ContenidoPage implements OnInit {
       state : {
         'nombre' : this.mdl_nombre,
         'pass1' : this.mdl_contrasena1,
-        'correo' : this.mdl_correo
+        'correo' : this.mdl_correo,
+        'recuerdo' : this.recuerdame
       }, replaceUrl : true
     }
     )
@@ -50,7 +56,8 @@ export class ContenidoPage implements OnInit {
       state : {
         'nombre' : this.mdl_nombre,
         'pass1' : this.mdl_contrasena1,
-        'correo' : this.mdl_correo
+        'correo' : this.mdl_correo,
+        'recuerdo' : this.recuerdame
       }, replaceUrl : true
     })
   }

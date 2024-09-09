@@ -21,6 +21,9 @@ export class LoginPage implements OnInit {
   //contraseña actual - predefinida
   mdl_extra: string = 'admin' 
 
+  //
+  recuerdame = false
+
   constructor(private router: Router) { 
   }
 
@@ -30,12 +33,19 @@ export class LoginPage implements OnInit {
       this.mdl_correo = extras.state['correo'],
       this.mdl_nombre = extras.state['nombre'],
       this.mdl_contrasena1 = extras.state['pass1'],
-      this.mdl_contrasena2 = extras.state['pass2']
+      this.mdl_contrasena2 = extras.state['pass2'],
+      this.recuerdame = extras.state['recuerdo']
+    }
+    if(this.recuerdame == true){
+      this.mdl_user = this.mdl_correo
+    }else{
+      this.mdl_user = ''
     }
     console.log(this.mdl_correo)
     console.log(this.mdl_nombre)
     console.log(this.mdl_contrasena1)
-    console.log(this.mdl_contrasena2)
+    console.log(this.mdl_contrasena2),
+    console.log(this.recuerdame)
   }
 
   contrasena(){
@@ -62,10 +72,11 @@ export class LoginPage implements OnInit {
         state : {
           'correo' : this.mdl_correo,
           'nombre' : this.mdl_nombre,
-          'pass1' : this.mdl_contrasena1
+          'pass1' : this.mdl_contrasena1,
+          'recuerdo' : this.recuerdame
         }, replaceUrl : true
       }
-      )
+    )
     }else{
       this.isToastOpen = true;
       this.mensaje = 'Credenciales incorrectas!'
@@ -97,5 +108,6 @@ export class LoginPage implements OnInit {
       this.relleno = 'solid'
     }
   }
+
 
 }
