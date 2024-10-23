@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="principal"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img src="assets/img/DatosdeUsuario.png" class="ion-margin-top"></ion-img>
+  <ion-card>
+    <ion-item><ion-label>Nombre: {{nombre}}</ion-label></ion-item>
+    <ion-item><ion-label>Apellido: {{apellido}}</ion-label></ion-item>
+    <ion-item lines="none"><ion-label>Correo: {{correo}}</ion-label></ion-item>
+  </ion-card>
+  <ion-card>
+    <div *ngIf="cambioCarrera">
+      <ion-item><ion-label>Carrera Anterior: {{carreraAnterior}}</ion-label></ion-item>
+    </div>
+    <ion-item lines="none"><ion-label>Carrera: {{carrera}}</ion-label></ion-item>
+    <div *ngIf="listaVisible">
+      <ion-item>
+        <ion-label>Carrera</ion-label>
+        <ion-select [(ngModel)]="carrera" placeholder="Seleccionar Carrera" (ionChange)="carreraPrevia()">
+          <ion-select-option *ngFor="let item of items" [value]="item">
+            {{ item }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <ion-button expand="block" (click)="visibleLista()" color="medium">Cambiar Carrera?</ion-button>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none"><ion-label>Cambio de contraseña</ion-label></ion-item>
+    <ion-item><ion-input labelPlacement="floating" label="Contraseña Actual" [(ngModel)]="mdl_pass" type="password"></ion-input></ion-item>
+    <ion-item lines="none"><ion-input labelPlacement="floating" label="Contraseña Nueva" [(ngModel)]="mdl_passNueva" type="password"></ion-input></ion-item>
+    <ion-button expand="block" (click)="cambioPassword()" color="medium">Cambiar Contraseña</ion-button>
+  </ion-card>
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]="mensaje"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
+</ion-content>

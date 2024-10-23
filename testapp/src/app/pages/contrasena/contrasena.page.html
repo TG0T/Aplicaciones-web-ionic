@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img src="assets/img/recuperarcontrasea.png"></ion-img>
+  <ion-card>
+    <ion-item class="ion-margin-bottom">
+      <ion-input labelPlacement="floating" label="Correo Electronico" type="email" [(ngModel)]="mdl_correo"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-label>Carrera</ion-label>
+      <ion-select [(ngModel)]="mdl_carrera" placeholder="Seleccionar Carrera">
+        <ion-select-option *ngFor="let item of items" [value]="item">
+          {{ item }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input labelPlacement="floating" label="Contraseña" [(ngModel)]="mdl_contrasena" type="password"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-button expand="block" (click)="recuperarPass()" class="ion-padding" color="medium">Recuperar Contraseña</ion-button>
+  <!-- toast -->
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]="mensaje"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
+</ion-content>

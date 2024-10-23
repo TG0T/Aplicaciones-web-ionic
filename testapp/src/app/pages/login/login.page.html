@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid style="height: 100%;">
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
+      <ion-col size="12" size-md="6"> <!-- Ajustar el tamaño de la columna según sea necesario -->
+        <ion-img src="assets/img/testapp.png"></ion-img>
+        <ion-card>
+          <ion-item>
+            <ion-input labelPlacement="floating" label="Correo Electrónico" type="email" [(ngModel)]="mdl_correo"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="mdl_contrasena"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-button expand="block" (click)="loginUsuario()" color="dark">Ingresar</ion-button>
+        <ion-button expand="block" (click)="crearUsuario()" color="medium">Crear usuario</ion-button>
+        <ion-button expand="block" (click)="contrasena()" color="medium">Recuperar Contraseña</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- toast -->
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]="mensaje"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
+</ion-content>

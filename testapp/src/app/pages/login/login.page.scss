@@ -1,0 +1,7 @@
+.center-content {
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    height: 100%; /* Usar toda la altura del contenedor */
+  }
