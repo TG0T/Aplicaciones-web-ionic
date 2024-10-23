@@ -14,31 +14,31 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-title>
-    Bienvenido: {{mdl_nombre}}
+    Bienvenido
   </ion-title>
   <ion-card class="ion-margin-top">
     <ion-grid class="ion-text-center">
       <ion-row>
         <ion-col>
-          <ion-button fill="clear" color="medium">
-            <ion-icon slot="icon-only" name="book"></ion-icon>
+          <ion-button fill="clear" color="medium" (click)="ingresarProducto()">
+            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button fill="clear" color="medium">
-            <ion-icon slot="icon-only" name="briefcase"></ion-icon>
+          <ion-button fill="clear" color="medium" (click)="listarCorreo()">
+            <ion-icon slot="icon-only" name="at-circle"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button fill="clear" color="medium">
-            <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+          <ion-button fill="clear" color="medium" (click)="listarTodos()">
+            <ion-icon slot="icon-only" name="list"></ion-icon>
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-button fill="clear" color="medium">
-            <ion-icon slot="icon-only" name="at-circle"></ion-icon>
+            <ion-icon slot="icon-only" name="briefcase"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col>

@@ -31,6 +31,17 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'ingresarproducto',
+    loadChildren: () => import('./pages/ingresarproducto/ingresarproducto.module').then( m => m.IngresarproductoPageModule)
+  },  {
+    path: 'listarproducto',
+    loadChildren: () => import('./pages/listarproducto/listarproducto.module').then( m => m.ListarproductoPageModule)
+  },
+  {
+    path: 'listarproductoxcorreo',
+    loadChildren: () => import('./pages/listarproductoxcorreo/listarproductoxcorreo.module').then( m => m.ListarproductoxcorreoPageModule)
+  },
 
 ];
 

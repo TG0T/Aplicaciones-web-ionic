@@ -1,3 +1,4 @@
+import { compileDeferResolverFunction } from '@angular/compiler';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
@@ -34,8 +35,7 @@ export class ContenidoPage implements OnInit {
     this.mdl_nombre = extras.state['nombre'],
     this.recuerdame = extras.state['recuerdo']
   }
-  console.log(this.mdl_contrasena1)
-  console.log(this.recuerdame)
+  console.log('Correo: '+this.mdl_correo + ' Recordar?: ' + this.recuerdame)
   }
 
   volver(){
@@ -66,4 +66,31 @@ export class ContenidoPage implements OnInit {
     this.modal.dismiss();
   }
 
+  listarCorreo(){
+    this.router.navigate(['listarproductoxcorreo'],{
+      state :{
+        'correo' : this.mdl_correo,
+        'recuerdo' : this.recuerdame
+      }, replaceUrl : true
+    }
+    )
+  }
+  listarTodos(){
+    this.router.navigate(['listarproducto'],{
+      state :{
+        'correo' : this.mdl_correo,
+        'recuerdo' : this.recuerdame
+      }, replaceUrl : true
+    }
+    )
+  }
+  ingresarProducto(){
+    this.router.navigate(['ingresarproducto'],{
+      state :{
+        'correo' : this.mdl_correo,
+        'recuerdo' : this.recuerdame
+      }, replaceUrl : true
+    }
+    )
+  }
 }

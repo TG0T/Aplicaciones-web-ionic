@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-input disabled="true" [(ngModel)]="mdl_correo" label="Correo: "></ion-input>
+  <ion-button expand="block" (click)="listarProductosxCorreo()">Listar</ion-button>
+  <ion-card *ngFor="let prod of listaproductos">
+    <ion-item>
+      <ion-label>{{prod.nombre}}</ion-label>
+      <ion-label>{{prod.precio}}</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

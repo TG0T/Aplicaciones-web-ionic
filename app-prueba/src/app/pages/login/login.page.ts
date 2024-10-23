@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { NavigationExtras, Router, ROUTER_CONFIGURATION } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -18,22 +20,16 @@ export class LoginPage implements OnInit {
   mdl_contrasena1: string = ''
   mdl_contrasena2: string = ''
 
-  //contraseña actual - predefinida
-  mdl_extra: string = 'admin' 
-
   //
   recuerdame = false
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private api : ApiService) { 
   }
 
   ngOnInit() {
     let extras = this.router.getCurrentNavigation()?.extras
     if(extras?.state){
       this.mdl_correo = extras.state['correo'],
-      this.mdl_nombre = extras.state['nombre'],
-      this.mdl_contrasena1 = extras.state['pass1'],
-      this.mdl_contrasena2 = extras.state['pass2'],
       this.recuerdame = extras.state['recuerdo']
     }
     if(this.recuerdame == true){
@@ -41,22 +37,30 @@ export class LoginPage implements OnInit {
     }else{
       this.mdl_user = ''
     }
-    console.log(this.mdl_correo)
-    console.log(this.mdl_nombre)
-    console.log(this.mdl_contrasena1)
-    console.log(this.mdl_contrasena2),
     console.log(this.recuerdame)
   }
 
-  contrasena(){
-    // redirige a la pantalla contraseña llevandose consigo el dato de la contraseña actual (mdl_extra)
-    let extras : NavigationExtras = {
-      state :{
-        'mdl_extra' : this.mdl_extra // se lleva la contraseña actual a la pagina de cambio de contraseña
-      },
-      replaceUrl : true //limpia el historial, obligatorio si se hace el cambio de contraseña
+  async login(){
+    let data = this.api.loginUsuario(
+      this.mdl_user, this.mdl_pass
+    )
+
+    let respuesta = await lastValueFrom(data)
+
+    let json_texto = JSON.stringify(respuesta)
+    let json = JSON.parse(json_texto)
+
+    if(json[0].RESPUESTA == 'LOGIN OK'){
+      this.router.navigate(['contenido'],{
+        state :{
+          'correo' : this.mdl_user,
+          'recuerdo' : this.recuerdame
+        }, replaceUrl : true
+      })
+    }else{
+      this.isToastOpen = true;
+      this.mensaje = 'Credenciales incorrectas!'
     }
-    this.router.navigate(['contrasena'], extras) //redirige a la pantalla/pagina contraseña
   }
 
   isToastOpen = false
@@ -66,33 +70,8 @@ export class LoginPage implements OnInit {
     this.isToastOpen = isOpen;
   }
 
-  login(){
-    if(this.mdl_user == this.mdl_correo && this.mdl_pass == this.mdl_contrasena1){
-      this.router.navigate(['contenido'],{
-        state : {
-          'correo' : this.mdl_correo,
-          'nombre' : this.mdl_nombre,
-          'pass1' : this.mdl_contrasena1,
-          'recuerdo' : this.recuerdame
-        }, replaceUrl : true
-      }
-    )
-    }else{
-      this.isToastOpen = true;
-      this.mensaje = 'Credenciales incorrectas!'
-    }
-  }
-
   crearusuario(){
-    let extras : NavigationExtras = {
-      state : {
-        'nombre' : this.mdl_nombre,
-        'correo' : this.mdl_correo,
-        'p1' : this.mdl_contrasena1,
-        'p2' : this.mdl_contrasena2
-      }, replaceUrl : true
-    }
-    this.router.navigate(['crearusuario'], extras)
+    this.router.navigate(['crearusuario'])
   }
 
   //boton login
